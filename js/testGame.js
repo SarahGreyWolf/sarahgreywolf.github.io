@@ -1,4 +1,4 @@
-var scene, renderer, cube, floor, players=[], gravity;
+var scene, renderer, cube, floor, players=[], gravity, light;
 //Set a keystate object that will have the state of every key that is pressed written to it
 var keyState = {};
 
@@ -96,6 +96,15 @@ function onKeyUp(event){
     keyState[event.keyCode || event.which] = false;
 }
 
+function onWindowResize(event){
+    renderer.setSize(window.innerWidth-17/window.innerHeight);
+    for(var player in players){
+        var tempPlayer = players[player];
+        tempPlayer.camera.aspect = window.innerWidth/window.innerHeight;
+        tempPlayer.camera.updateProjectionMatrix();
+    }
+}
+
 function init(){
 
     //Creates the scene to display objects
@@ -105,10 +114,16 @@ function init(){
     renderer = new THREE.WebGLRenderer();
     //set the size of the renderer
     renderer.setSize(window.innerWidth-17,window.innerHeight);
+    renderer.shadowMap.enabled = true;
+
+    light = new THREE.DirectionalLight(0xFFFFFF,0.5);
+    light.position.set(200,200,600);
+    light.castShadow = true;
 
     //Create event listeners
     document.addEventListener("keydown",onKeyDown);
     document.addEventListener("keyup",onKeyUp);
+    //window.addEventListener("resize",onWindowResize,false);
 
     //Assigns the renderer to a canvas object to display the scene to us
     document.body.appendChild(renderer.domElement);
@@ -116,19 +131,28 @@ function init(){
     //Create the 3D shape (Box with width, height and Depth dimensions)
     var geometry = new THREE.BoxGeometry(1,1,1);
     //Creates the mesh material to assign to the box
-    var material = new THREE.MeshBasicMaterial({color: 0x00FF00});
+    var material = new THREE.MeshStandardMaterial({color: 0x00FF00});
     //Create a new mesh with the geometry of the box and the material
     cube = new THREE.Mesh(geometry,material);
 
     //Create a floor
     floor = new THREE.Mesh(
         new THREE.BoxGeometry(50,10,50),
-        new THREE.MeshBasicMaterial({color: 0xFFFFFF})
+        new THREE.MeshStandardMaterial({color: 0xFFFFFF})
     );
 
+    cube.castShadow = true;
+    cube.receiveShadow = true;
+    floor.castShadow = false;
+    floor.receiveShadow = true;
+
+    scene.add(light);
     //Add the cube to the scene
     scene.add(cube);
     scene.add(floor);
+
+    cube.position.y = 2;
+
     floor.position.y = -10;
 
     players.push(createPlayer("Master0r0"));
