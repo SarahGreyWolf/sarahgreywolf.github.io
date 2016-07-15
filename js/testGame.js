@@ -66,11 +66,14 @@ function playerMovement(player){
 
     if(player.moveForwardBack == 1){
         player.position.z -= player.velocity;
-    }else if(player.moveForwardBack == -1){
+    }
+    if(player.moveForwardBack == -1){
         player.position.z += player.velocity;
-    }else if(player.moveLeftRight == 1){
+    }
+    if(player.moveLeftRight == 1){
         player.position.x += player.velocity;
-    }else if(player.moveLeftRight == -1){
+    }
+    if(player.moveLeftRight == -1){
         player.position.x -= player.velocity;
     }
 }
