@@ -12,16 +12,15 @@ body{
 }
 
 #fullwidth{
-    width: 100%;
+    max-width: 100%;
     float: left;
     padding: 0px;
     margin: 0px;
 }
 
 #nav{
+    max-width: 100%;
     max-height: 50px;
-    border-style: dashed;
-    border-color: rgb(255, 0, 0);
 }
 
 h1.header{
