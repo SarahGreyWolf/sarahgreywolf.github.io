@@ -2,8 +2,9 @@
     font-family: 'Raleway', sans-serif;
 }
 
-body{
+body, html{
     margin: 0;
+    overflow: hidden;
 }
 
 #header{
