@@ -4,16 +4,15 @@
         <meta charset="UTF-8">
         <title>Sarahs Letters</title>
         <link rel="stylesheet" href="css/main.css">
-        <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,800,100,500,300' rel='stylesheet' type='text/css'>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </head>
-    <body>
+    <body class="letters">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4 header">
+            <div class="col-sm-12 header">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
                     <h1>
                         <span style="color:#AA0000">Q</span>
                         <span style="color:#FF5555">U</span>
@@ -25,11 +24,72 @@
                         <span style="color:#55FFFF">A</span>
                         <span style="color:#FF55FF">F</span>
                         <span style="color:#AA00AA">T</span>
-                        Letters
+                        Letters Helper
                     </h1>
                 </div>
-                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
             </div>
+        </div>
+        <div class="row contents">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 center fullwidth">
+                <h3 style="color:#2e6da4">Text Codes</h3>
+                <h2 style="background-color: #444444; text-align: center">
+                    <span style="color:#000000">&0</span>
+                    <span style="color:#0000AA">&1</span>
+                    <span style="color:#00AA00">&2</span>
+                    <span style="color:#00AAAA">&3</span>
+                    <span style="color:#AA0000">&4</span>
+                    <span style="color:#AA00AA">&5</span>
+                    <span style="color:#FFAA00">&6</span>
+                    <span style="color:#AAAAAA">&7</span>
+                    <span style="color:#555555">&8</span>
+                    <span style="color:#5555FF">&9</span>
+                    <span style="color:#55FF55">&a</span>
+                    <span style="color:#55FFFF">&b</span>
+                    <span style="color:#FF5555">&c</span>
+                    <span style="color:#FF55FF">&d</span>
+                    <span style="color:#FFFF55">&e</span>
+                    <span style="color:#FFFFFF">&f</span><br>
+                    <span style="color:#000000;font-weight: bold;">&i</span>
+                    <span style="color:#000000;text-decoration: line-through;">&m</span>
+                    <span style="color:#000000;text-decoration: underline;">&n</span>
+                    <span style="color:#000000;font-style: italic;">&0</span>
+                </h2>
+                <textarea id="entry" onchange="writeLetter()"></textarea>
+                <h3 style="color:#4763ff">Output</h3>
+                <textarea id="output" readonly></textarea>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="footer">
+
         </div>
     </body>
 </html>
+<script type="text/javascript">
+    function writeLetter(){
+        var start = 0;
+        var end = 93;
+        var finalised = "";
+        var pattern = "\n", re = new RegExp(pattern, "g");
+        var entry = document.getElementById("entry").value;
+        var newString = entry.replace(re,'\\n');
+        for(i = 0;i<newString.length;i+=93){
+            if(!newString.length<93){
+                var string = "/letter ";
+                var sub = newString.substr(start,end);
+                string += sub+"\n";
+                finalised += string;
+            }else{
+                var string = "/letter ";
+                console.log(i);
+                string += newString;
+                finalised += string;
+            }
+            end+=94;
+            start+=93;
+        }
+        document.getElementById("output").innerHTML = finalised;
+    }
+</script>
