@@ -26,15 +26,14 @@ body, html{
 }
 
 .header h1{
-    font-family: "Raleway";
+    font-family: "Raleway", serif;
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     max-width: 320px;
     background-color: rgb(0, 255, 255);
-    border-color: rgb(255,0,255);
-    border-style: dashed;
+    border: dashed rgb(255, 0, 255);
 }
 
 .nav ul{
@@ -49,7 +48,7 @@ body, html{
     float: left;
 }
 
-li.nav a{
+.nav li.a{
     display: block;
     color: black;
     text-align: center;
