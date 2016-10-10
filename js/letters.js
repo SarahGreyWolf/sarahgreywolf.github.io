@@ -16,6 +16,7 @@ function writeLetter(){
             var endString = "/letter ";
             var sub = newString.substr(start,end);
             endString += sub + "</span>\n";
+            endString = endString.replace(/ +(?= )/g,'');
             finalised += endString;
         }else{
             var endString = "/letter ";
