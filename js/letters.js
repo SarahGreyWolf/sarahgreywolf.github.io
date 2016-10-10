@@ -3,44 +3,46 @@
  */
 function writeLetter(){
     var start = 0;
-    var end = 93;
+    var end = 90;
     var finalised = "";
     var pattern = "\n", re = new RegExp(pattern, "g");
-    var black = new RegExp("&0","g"), darkBlue = new RegExp("&1","g"), darkGreen = new RegExp("&2","g"), darkAqua = new RegExp("&3","g"), darkRed = new RegExp("&4","g"), darkPurple = new RegExp("&5","g"), gold = new RegExp("&6","g"), gray = new RegExp("&7","g"), darkGray = new RegExp("&8","g"), blue = new RegExp("&9","g"), green = new RegExp("&a","g"), aqua = new RegExp("&b","g"), red = new RegExp("&c","g"), lightPurple = new RegExp("&d","g"), yellow = new RegExp("&e","g"), reset = new RegExp("&r","g");
+    var black = new RegExp("&0","g"), darkBlue = new RegExp("&1","g"), darkGreen = new RegExp("&2","g"), darkAqua = new RegExp("&3","g"), darkRed = new RegExp("&4","g"), darkPurple = new RegExp("&5","g"), gold = new RegExp("&6","g"), gray = new RegExp("&7","g"), darkGray = new RegExp("&8","g"), blue = new RegExp("&9","g"), green = new RegExp("&a","g"), aqua = new RegExp("&b","g"), red = new RegExp("&c","g"), lightPurple = new RegExp("&d","g"), yellow = new RegExp("&e","g"), reset = new RegExp("&f","g");
     var entry = document.getElementById("entry").value;
     var newString = entry.replace(re,'\\n');
 
-    var newString = newString.replace(black,"<span style='color:#000000'>&0");
-    var newString = newString.replace(darkBlue,"<span style='color:#0000AA'>&1");
-    var newString = newString.replace(darkGreen,"<span style='color:#00AA00'>&2");
-    var newString = newString.replace(darkAqua,"<span style='color:#00AAAA'>&3");
-    var newString = newString.replace(darkRed,"<span style='color:#AA0000'>&4");
-    var newString = newString.replace(darkPurple,"<span style='color:#AA00AA'>&5");
-    var newString = newString.replace(gold,"<span style='color:#FFAA00'>&6");
-    var newString = newString.replace(gray,"<span style='color:#AAAAAA'>&7");
-    var newString = newString.replace(darkGray,"<span style='color:#555555'>&8");
-    var newString = newString.replace(blue,"<span style='color:#5555FF'>&9");
-    var newString = newString.replace(green,"<span style='color:#55FF55'>&a");
-    var newString = newString.replace(aqua,"<span style='color:#55FFFF'>&b");
-    var newString = newString.replace(red,"<span style='color:#FF5555'>&c");
-    var newString = newString.replace(lightPurple,"<span style='color:#FF55FF'>&d");
-    var newString = newString.replace(yellow,"<span style='color:#FFFF55'>&e");
-    var newString = newString.replace(reset,"</span>&r");
-
-    for(i = 0;i<newString.length;i+=93){
-        if(!newString.length<93){
-            var string = "/letter ";
+    for(i = 0;i<(newString.length/90);i++){
+        console.log(start+":"+end);
+        if(!newString.length<82){
+            var endString = "/letter ";
             var sub = newString.substr(start,end);
-            string += sub+"</span>&r\n";
-            finalised += string;
+            endString += sub + "</span>\n";
+            finalised += endString;
         }else{
-            var string = "/letter ";
-            console.log(i);
-            string += newString+"</span>&r\n";
-            finalised += string;
+            var endString = "/letter ";
+            var string = "";
+            string += newString+"</span>\n";
+            endString += string;
+            finalised += endString;
         }
-        end+=94;
-        start+=93;
+        start+=89;
     }
+
+    finalised = finalised.replace(black,"<span style='color:#000000'>&0");
+    finalised = finalised.replace(darkBlue,"<span style='color:#0000AA'>&1");
+    finalised = finalised.replace(darkGreen,"<span style='color:#00AA00'>&2");
+    finalised = finalised.replace(darkAqua,"<span style='color:#00AAAA'>&3");
+    finalised = finalised.replace(darkRed,"<span style='color:#AA0000'>&4");
+    finalised = finalised.replace(darkPurple,"<span style='color:#AA00AA'>&5");
+    finalised = finalised.replace(gold,"<span style='color:#FFAA00'>&6");
+    finalised = finalised.replace(gray,"<span style='color:#AAAAAA'>&7");
+    finalised = finalised.replace(darkGray,"<span style='color:#555555'>&8");
+    finalised = finalised.replace(blue,"<span style='color:#5555FF'>&9");
+    finalised = finalised.replace(green,"<span style='color:#55FF55'>&a");
+    finalised = finalised.replace(aqua,"<span style='color:#55FFFF'>&b");
+    finalised = finalised.replace(red,"<span style='color:#FF5555'>&c");
+    finalised = finalised.replace(lightPurple,"<span style='color:#FF55FF'>&d");
+    finalised = finalised.replace(yellow,"<span style='color:#FFFF55'>&e");
+    finalised = finalised.replace(reset,"</span>&f");
+
     document.getElementById("output").innerHTML = finalised;
 }
