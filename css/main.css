@@ -102,6 +102,10 @@ body, html{
     font-weight: bold;
 }
 
+.contents p{
+    text-align: center;
+}
+
 .contents h2{
     border: deeppink solid 2px;
     border-radius: 20px;
@@ -109,4 +113,9 @@ body, html{
 
 .footer{
     margin-top:30px;
+}
+
+.version{
+    float: right;
+    margin-right: 10px;
 }
