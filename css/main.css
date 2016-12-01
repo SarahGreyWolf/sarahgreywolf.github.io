@@ -73,6 +73,10 @@ body, html{
     text-decoration: underline;
 }
 
+.letters{
+    max-width: 1400px;
+}
+
 .center{
     margin-left: auto;
     margin-right: auto;
