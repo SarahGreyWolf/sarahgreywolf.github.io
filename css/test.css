@@ -1,0 +1,39 @@
+*{
+    color: black;
+    overflow-x: hidden;
+    margin: 0px;
+    padding: 0px;
+    
+}
+.head{
+    display: block;
+    align-content: center;
+    text-align: center;
+    border: 2px dashed deeppink;
+    color: deeppink;
+}
+.nav{
+    height: 100px;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#medialist li a:link,#medialist li a:visited,#medialist li a:hover,#medialist li a:active{
+    text-decoration: none;
+    color: black;
+}
+
+.chat{
+    height: 400px;
+    width: 400px;
+    text-align: center;
+}
+.chat textarea{
+    width: 100%;
+    resize: none;
+}
+.chat .chatarea{
+    min-height: 300px;
+}
