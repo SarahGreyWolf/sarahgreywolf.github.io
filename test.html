@@ -1,16 +1,12 @@
 <html>
     <head>
+        <title>Test Book</title>
     </head>
     <body>
         <ul class="book">
-            <li>This is a website!<br><br>
-            Your User-Agent: <?= $_SERVER['HTTP_USER_AGENT'] ?>
-            <li>Player data we can read:<br>
-          <?
-            foreach ($_POST as $key => $value) {
-              echo "${key}, ";
-            }
-          ?>
+            <li>This is a website!<br><br></li>
+            Your username is: <PlayerName>
+            <li>Your level is:<Level><br></li>
         </ul>
     </body>
 </html>
