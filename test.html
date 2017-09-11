@@ -1,0 +1,16 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <ul class="book">
+            <li>This is a website!<br><br>
+            Your User-Agent: <?= $_SERVER['HTTP_USER_AGENT'] ?>
+            <li>Player data we can read:<br>
+          <?
+            foreach ($_POST as $key => $value) {
+              echo "${key}, ";
+            }
+          ?>
+        </ul>
+    </body>
+</html>
