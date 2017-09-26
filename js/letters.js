@@ -3,14 +3,14 @@
  */
 function writeLetter(){
     var start = 0;
-    var end = 90;
+    var end = 248;
     var finalised = "";
     var pattern = "\n", re = new RegExp(pattern, "g");
     var black = new RegExp("&0","g"), darkBlue = new RegExp("&1","g"), darkGreen = new RegExp("&2","g"), darkAqua = new RegExp("&3","g"), darkRed = new RegExp("&4","g"), darkPurple = new RegExp("&5","g"), gold = new RegExp("&6","g"), gray = new RegExp("&7","g"), darkGray = new RegExp("&8","g"), blue = new RegExp("&9","g"), green = new RegExp("&a","g"), aqua = new RegExp("&b","g"), red = new RegExp("&c","g"), lightPurple = new RegExp("&d","g"), yellow = new RegExp("&e","g"), reset = new RegExp("&f","g");
     var entry = document.getElementById("entry").value;
     var newString = entry.replace(re,'\\n');
 
-    for(i = 0;i<(newString.length/90);i++){
+    for(i = 0;i<(newString.length/256);i++){
         console.log(start+":"+end);
         if(!newString.length<82){
             var endString = "/letter ";
@@ -25,7 +25,7 @@ function writeLetter(){
             endString += string;
             finalised += endString;
         }
-        start+=89;
+        start+=248;
     }
 
     finalised = finalised.replace(black,"<span style='color:#000000'>&0");
@@ -47,3 +47,4 @@ function writeLetter(){
 
     document.getElementById("output").innerHTML = finalised;
 }
+
