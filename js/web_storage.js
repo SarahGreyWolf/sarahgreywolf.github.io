@@ -266,10 +266,6 @@ function getImports() {
         const ret = navigator.storage.getDirectory();
         return addHeapObject(ret);
     };
-    imports.wbg.__wbg_entries_ab84e8179de155e0 = function(arg0) {
-        const ret = getObject(arg0).entries();
-        return addHeapObject(ret);
-    };
     imports.wbg.__wbg_then_ec5db6d509eb475f = function(arg0, arg1) {
         const ret = getObject(arg0).then(getObject(arg1));
         return addHeapObject(ret);
@@ -288,11 +284,11 @@ function getImports() {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper13 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper12 = function(arg0, arg1, arg2) {
         const ret = makeMutClosure(arg0, arg1, 4, __wbg_adapter_10);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper14 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper13 = function(arg0, arg1, arg2) {
         const ret = makeMutClosure(arg0, arg1, 4, __wbg_adapter_13);
         return addHeapObject(ret);
     };
