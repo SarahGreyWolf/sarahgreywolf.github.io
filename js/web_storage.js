@@ -92,7 +92,7 @@ function handleError(f, args) {
         wasm.__wbindgen_exn_store(addHeapObject(e));
     }
 }
-function __wbg_adapter_28(arg0, arg1, arg2, arg3) {
+function __wbg_adapter_30(arg0, arg1, arg2, arg3) {
     wasm.wasm_bindgen__convert__closures__invoke2_mut__h8a138c7b5ce30b62(arg0, arg1, addHeapObject(arg2), addHeapObject(arg3));
 }
 
@@ -184,8 +184,12 @@ function getImports() {
         const ret = result;
         return ret;
     };
+    imports.wbg.__wbg_filehandleoptions_new = function(arg0) {
+        const ret = FileHandleOptions.__wrap(arg0);
+        return addHeapObject(ret);
+    };
     imports.wbg.__wbg_getFileHandle_f3e9f8b9596aea2c = function(arg0, arg1, arg2, arg3) {
-        const ret = getObject(arg0).getFileHandle(getStringFromWasm0(arg1, arg2), FileHandleOptions.__wrap(arg3));
+        const ret = getObject(arg0).getFileHandle(getStringFromWasm0(arg1, arg2), takeObject(arg3));
         return addHeapObject(ret);
     };
     imports.wbg.__wbg_instanceof_FileSystemFileHandle_545cdaf52ff42669 = function(arg0) {
@@ -245,7 +249,7 @@ function getImports() {
                 const a = state0.a;
                 state0.a = 0;
                 try {
-                    return __wbg_adapter_28(a, state0.b, arg0, arg1);
+                    return __wbg_adapter_30(a, state0.b, arg0, arg1);
                 } finally {
                     state0.a = a;
                 }
@@ -271,7 +275,7 @@ function getImports() {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper78 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper79 = function(arg0, arg1, arg2) {
         const ret = makeMutClosure(arg0, arg1, 25, __wbg_adapter_8);
         return addHeapObject(ret);
     };
