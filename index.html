@@ -35,7 +35,7 @@
             import init, { test } from "/js/web_storage.js";
             window.addEventListener("load", async () => {
                 await init();
-                await test();
+                console.log(await test());
             });
         </script>
     </body>
