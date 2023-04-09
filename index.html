@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>SarahGreyWolf Blog</title>
@@ -32,8 +33,9 @@
         </div>
         <script type="module">
             import init, { test } from "/js/web_storage.js";
-            await init();
             window.addEventListener("load", async () => {
+                console.log("Ello");
+                await init();
                 await test();
             });
         </script>
