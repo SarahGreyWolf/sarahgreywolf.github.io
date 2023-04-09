@@ -208,9 +208,11 @@ function __wbg_adapter_13(arg0, arg1, arg2) {
 }
 
 /**
+* @returns {Promise<any>}
 */
 export function test() {
-    wasm.test();
+    const ret = wasm.test();
+    return takeObject(ret);
 }
 
 async function load(module, imports) {
