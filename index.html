@@ -3,13 +3,15 @@
         <meta charset="utf-8">
         <title>Master0r0 Blog</title>
         <link rel="stylesheet" href="css/main.css">
-        <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,800,100,500,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,800,100,500,300' rel='stylesheet'
+            type='text/css'>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
     </head>
     <!-- TestBot? -->
+
     <body>
         <div class="container">
             <div class="header">
@@ -29,5 +31,12 @@
                 </div>
             </div>
         </div>
+        <script type="module">
+            import init, { test } from "js/web_storage.js";
+            await init();
+            window.addEventListener("load", async () => {
+                await test();
+            });
+        </script>
     </body>
 </html>
