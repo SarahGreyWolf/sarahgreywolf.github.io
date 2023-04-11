@@ -20,18 +20,15 @@ async function fileUpload(evt) {
     const new_file = await file.getFile();
     const divisions = new_file.size / 2000000000;
 
-    const promises = [];
+    const workers = [];
     let start = 0;
     for (let i = 0; i < divisions; i++) {
-        const division = await root.getFileHandle(`${uploadedFile.name}.div${i}`, { create: true });
-        const slice = new_file.slice(start, start + 2000000000);
-        const stream = slice.stream();
-        const divWriteable = await division.createWritable();
-        promises.push(stream.pipeTo(divWriteable));
-        start += 2000000000;
-    }
+        const worker = new Worker("worker.js");
+        worker.onmessage = function (e) {
+            console.log(`${e.data.id} has completed it's job`);
+        }
+        workers.push(worker);
 
-    for (let i = 0; i < promises.length; i++) {
-        await promises[i];
+        start += 2000000000;
     }
 }
