@@ -1,7 +1,7 @@
 onmessage = async function (e) {
-    const fileName = e.data[0];
-    const start = e.data[1];
-    const divisionIndex = e.data[2];
+    const fileName = e.data.fileName;
+    const start = e.data.start;
+    const divisionIndex = e.data.divisionIndex;
     console.log(`Worker: Received job for file ${fileName} with index ${divisionIndex}`);
 
     const root = await navigator.storage.getDirectory();

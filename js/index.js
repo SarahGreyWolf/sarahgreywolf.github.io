@@ -24,6 +24,11 @@ async function fileUpload(evt) {
     let start = 0;
     for (let i = 0; i < divisions; i++) {
         const worker = new Worker("/js/worker.js");
+        worker.postMessage({
+            fileName: uploadedFile.name,
+            start: start,
+            divisionIndex: i
+        });
         worker.onmessage = function (e) {
             console.log(`${e.data.id} has completed it's job`);
         }
