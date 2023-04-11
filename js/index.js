@@ -23,7 +23,7 @@ async function fileUpload(evt) {
     const promises = [];
     let start = 0;
     for (let i = 0; i < divisions; i++) {
-        const division = await root.getFileHandle(`${uploadedFile.name}.div${division}`, { create: true });
+        const division = await root.getFileHandle(`${uploadedFile.name}.div${i}`, { create: true });
         const slice = new_file.slice(start, start + 2000000000);
         const stream = slice.stream();
         const divWriteable = await division.createWritable();
