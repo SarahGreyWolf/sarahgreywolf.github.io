@@ -2,13 +2,14 @@
     font-family: 'Raleway', sans-serif;
 }
 
-body, html{
+body,
+html {
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
-.letters{
+.letters {
     background-color: black;
     color: white;
     border: deeppink solid 2px;
@@ -19,12 +20,12 @@ body, html{
     max-width: 1400px;
 }
 
-.header{
+.header {
     padding: 0;
     margin: 0;
 }
 
-.fullwidth{
+.fullwidth {
     max-width: 100%;
     width: 100%;
     float: left;
@@ -33,12 +34,12 @@ body, html{
     overflow: hidden;
 }
 
-.nav{
+.nav {
     max-width: 100%;
     max-height: 50px;
 }
 
-.header h1{
+.header h1 {
     font-family: "Raleway", serif;
     display: block;
     text-align: center;
@@ -49,7 +50,7 @@ body, html{
     border: dashed rgb(255, 0, 255);
 }
 
-.nav ul{
+.nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -57,11 +58,11 @@ body, html{
     background-color: lightgrey;
 }
 
-.nav li{
+.nav li {
     float: left;
 }
 
-.nav a{
+.nav a {
     display: block;
     color: black;
     text-align: center;
@@ -70,24 +71,25 @@ body, html{
     font-family: "Raleway", serif;
 }
 
-.nav li:hover{
+.nav li:hover {
     background-color: rgb(0, 255, 0);
     text-decoration: underline;
 }
 
-.center{
+.center {
     margin-left: auto;
     margin-right: auto;
 }
 
-.contents{
+.content {
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
+    max-width: 75%;
     padding: 0;
 }
 
-.contents textarea{
+.content textarea {
     margin-left: auto;
     margin-right: auto;
     min-width: 100%;
@@ -98,26 +100,26 @@ body, html{
     resize: none;
 }
 
-.contents h3{
+.content h3 {
     text-align: center;
     font-size: 20px;
     font-weight: bold;
 }
 
-.contents p{
+.content p {
     text-align: center;
 }
 
-.contents h2{
+.content h2 {
     border: deeppink solid 2px;
     border-radius: 20px;
 }
 
-.footer{
-    margin-top:30px;
+.footer {
+    margin-top: 30px;
 }
 
-.credits p{
+.credits p {
     float: right;
     margin-right: 10px;
     text-align: right;

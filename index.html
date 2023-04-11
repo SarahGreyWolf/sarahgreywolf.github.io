@@ -6,37 +6,27 @@
         <link rel="stylesheet" href="css/main.css">
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,800,100,500,300' rel='stylesheet'
             type='text/css'>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
         <script src="js/jquery-3.6.4.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <!-- <script src="js/bootstrap.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
     </head>
     <!-- TestBot? -->
 
     <body>
-        <div class="container">
-            <div class="header">
-                <div class="row fullwidth">
-                    <div class="col-sm-12">
-                        <h1>Hello and Welcome!</h1>
-                    </div>
-                </div>
-                <div class="row fullwidth">
-                    <div class="nav">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="solar_system.html">Solar System</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="header fullwidth">
+            <h1 class="header">Hello and Welcome!</h1>
+            <div class="nav fullwidth">
+                <ul class="nav">
+                    <li class="nav"><a href="index.html">Home</a></li>
+                    <li class="nav"><a href="solar_system.html">Solar System</a></li>
+                </ul>
             </div>
         </div>
-        <script type="module">
-            import init, { test } from "/js/web_storage.js";
-            window.addEventListener("load", async () => {
-                await init();
-                console.log(await test());
-            });
-        </script>
+        <div class="content">
+            <label for="file">Upload ya shit here</label>
+            <input style="display: none" id="file" type="file">
+        </div>
+        <script type="module" src="/js/index.js"></script>
     </body>
 </html>
