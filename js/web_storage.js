@@ -159,10 +159,46 @@ export function test() {
     return takeObject(ret);
 }
 
-function __wbg_adapter_29(arg0, arg1, arg2, arg3) {
+function __wbg_adapter_31(arg0, arg1, arg2, arg3) {
     wasm.__wbindgen_export_5(arg0, arg1, addHeapObject(arg2), addHeapObject(arg3));
 }
 
+/**
+*/
+export class FileGetOptions {
+
+    static __wrap(ptr) {
+        const obj = Object.create(FileGetOptions.prototype);
+        obj.ptr = ptr;
+
+        return obj;
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.ptr;
+        this.ptr = 0;
+
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_filegetoptions_free(ptr);
+    }
+    /**
+    * @returns {boolean}
+    */
+    get create() {
+        const ret = wasm.__wbg_get_filegetoptions_create(this.ptr);
+        return ret !== 0;
+    }
+    /**
+    * @param {boolean} arg0
+    */
+    set create(arg0) {
+        wasm.__wbg_set_filegetoptions_create(this.ptr, arg0);
+    }
+}
 /**
 */
 export class FileSystemWritableFileStreamData {
@@ -249,8 +285,8 @@ function getImports() {
         const ret = result;
         return ret;
     };
-    imports.wbg.__wbg_getFileHandle_e0dc6a34d9b62316 = function() { return handleError(function (arg0, arg1, arg2, arg3) {
-        const ret = getObject(arg0).getFileHandle(getStringFromWasm0(arg1, arg2), arg3 !== 0);
+    imports.wbg.__wbg_getFileHandle_f3e9f8b9596aea2c = function() { return handleError(function (arg0, arg1, arg2, arg3) {
+        const ret = getObject(arg0).getFileHandle(getStringFromWasm0(arg1, arg2), FileGetOptions.__wrap(arg3));
         return addHeapObject(ret);
     }, arguments) };
     imports.wbg.__wbg_instanceof_FileSystemFileHandle_545cdaf52ff42669 = function(arg0) {
@@ -309,7 +345,7 @@ function getImports() {
                 const a = state0.a;
                 state0.a = 0;
                 try {
-                    return __wbg_adapter_29(a, state0.b, arg0, arg1);
+                    return __wbg_adapter_31(a, state0.b, arg0, arg1);
                 } finally {
                     state0.a = a;
                 }
@@ -335,7 +371,7 @@ function getImports() {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper126 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper137 = function(arg0, arg1, arg2) {
         const ret = makeMutClosure(arg0, arg1, 8, __wbg_adapter_8);
         return addHeapObject(ret);
     };
