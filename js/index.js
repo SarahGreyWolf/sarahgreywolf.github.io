@@ -23,7 +23,7 @@ async function fileUpload(evt) {
     const workers = [];
     let start = 0;
     for (let i = 0; i < divisions; i++) {
-        const worker = new Worker("worker.js");
+        const worker = new Worker("/js/worker.js");
         worker.onmessage = function (e) {
             console.log(`${e.data.id} has completed it's job`);
         }
