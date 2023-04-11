@@ -18,6 +18,9 @@ async function fileUpload(evt) {
     console.log("Done?");
 
     const new_file = await file.getFile();
+    if (new_file.size <= 2000000000) {
+        return;
+    }
     const divisions = new_file.size / 2000000000;
 
     const workers = [];
