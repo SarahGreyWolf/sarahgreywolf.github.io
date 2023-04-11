@@ -10,7 +10,7 @@ window.addEventListener("load", async () => {
 async function fileUpload(evt) {
     const uploadedFile = evt.target.files[0];
     const root = await navigator.storage.getDirectory();
-    const file = await root.getFileHandle(file.name, { create: true });
+    const file = await root.getFileHandle(uploadedFile.name, { create: true });
     const writable = await file.createWritable();
-    await writable.write(await file.arrayBuffer());
+    await writable.write(await uploadedFile.arrayBuffer());
 }
