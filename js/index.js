@@ -12,5 +12,8 @@ async function fileUpload(evt) {
     const root = await navigator.storage.getDirectory();
     const file = await root.getFileHandle(uploadedFile.name, { create: true });
     const writable = await file.createWritable();
-    await writable.write(await uploadedFile.arrayBuffer());
+
+    const stream = uploadedFile.stream();
+    await stream.pipeTo(writable);
+    console.log("Done?");
 }
