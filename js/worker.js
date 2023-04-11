@@ -5,7 +5,7 @@ onmessage = async function (e) {
     console.log(`Worker: Received job for file ${fileName} with index ${divisionIndex}`);
 
     const root = await navigator.storage.getDirectory();
-    const fileHandle = await root.getFileHandle(uploadedFile.name);
+    const fileHandle = await root.getFileHandle(fileName);
     const file = await fileHandle.getFile();
 
     const division = await root.getFileHandle(`${fileName}.div${divisionIndex}`, { create: true });
