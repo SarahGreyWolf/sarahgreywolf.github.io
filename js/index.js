@@ -1,5 +1,8 @@
 import init, { test } from "/js/web_storage.js";
 
+let startTime;
+let workersComplete = 0;
+
 window.addEventListener("load", async () => {
     // await init();
     // console.log(await test());
@@ -8,7 +11,7 @@ window.addEventListener("load", async () => {
 });
 
 async function fileUpload(evt) {
-    const startTime = Date.now();
+    startTime = Date.now();
     const uploadedFile = evt.target.files[0];
     const root = await navigator.storage.getDirectory();
     const file = await root.getFileHandle(uploadedFile.name, { create: true });
@@ -33,23 +36,24 @@ async function fileUpload(evt) {
             start: start,
             divisionIndex: i
         });
-        worker.onmessage = function (e) {
-            console.log(`Worker ${e.data.id} has completed it's job`);
-            workers[i].done = true;
-        }
         workers.push({ worker: worker, done: false });
 
         start += 2000000000;
     }
 
-    let complete = false;
-    while (!complete) {
-        const completeWorkers = 0;
-        for (let i = 0; i < workers.length; i++) {
-            if (workers[i].done === true) completeWorkers++;
-        }
-        if (completeWorkers == workers.length) complete = true;
+    workers.forEach(worker => {
+        worker.onmessage = function (e) {
+            console.log(`Worker ${e.data.id} has completed it's job`);
+            workers[i].done = true;
+            complete(workers.length);
+        };
+    });
+}
+
+function complete(workersCount) {
+    workersComplete++;
+    if (workersComplete === workersCount) {
+        const duration = Date.now() - startTime;
+        console.log(`Completed in ${new Date(duration).getMinutes()}`);
     }
-    const duration = Date.now() - startTime;
-    console.log(`Completed in ${new Date(duration).getMinutes()}`);
 }
