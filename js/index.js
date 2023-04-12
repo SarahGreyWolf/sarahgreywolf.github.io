@@ -31,6 +31,11 @@ async function fileUpload(evt) {
     let start = 0;
     for (let i = 0; i < divisions; i++) {
         const worker = new Worker("/js/worker.js");
+        worker.onmessage = function (e) {
+            console.log(`Worker ${e.data.id} has completed it's job`);
+            workers[i].done = true;
+            complete(divisions);
+        };
         worker.postMessage({
             fileName: uploadedFile.name,
             start: start,
@@ -40,14 +45,6 @@ async function fileUpload(evt) {
 
         start += 2000000000;
     }
-
-    workers.forEach(worker => {
-        worker.onmessage = function (e) {
-            console.log(`Worker ${e.data.id} has completed it's job`);
-            workers[i].done = true;
-            complete(workers.length);
-        };
-    });
 }
 
 function complete(workersCount) {
