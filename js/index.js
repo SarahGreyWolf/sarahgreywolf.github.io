@@ -24,6 +24,7 @@ async function fileUpload(evt) {
     console.log("JS: Done Piping");
     let duration = Date.now() - pipeStart;
     console.log(`Completed in ${new Date(duration).getMilliseconds()} ms`);
+    await root.removeEntry(uploadedFile.name);
     pipeStart = Date.now();
     await file_upload(uploadedFile);
     duration = Date.now() - pipeStart;
